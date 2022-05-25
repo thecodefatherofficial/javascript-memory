@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">  
+    <title>JS Memory | TheCodeFather</title>
+    <link rel="stylesheet" href="assets/style/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="assets/images/logo-center.png">
+  </head>
+  <body>
+    <div class="body">
+      <div class="start-game">
+        <div class="logo">
+          <img src="assets/images/logo-center.png" alt="">
+        </div>
+        <button>Սկսել</button>
+      </div>
+  
+      <div class="game-info-level">
+        <i class="fa-solid fa-xmark"></i>
+        <div class="info">
+          <h2>Խաղի Կոնոները</h2>
+          <p>Խաղը բախկացած է 3 մակարտակների հեշտ, միջին և դժվար։ Այս 3 մակարդակների հիմքում ընկած է մեկ տրամաբանություն՝
+            դուք պետք է բացեք բլոկները որոնց տակ թաքնված կլինի հարցը իսկ մյուսի տակ պատասխանը, բայց նայև պետք է հիշեք
+            թե ինչ էր թաքնված բլոկների տակ քանի որ դուք հնարավոր է բացեք այնպիսի բլոկներ որենք իրենց զույքը չլինեն(հարցը
+            պատասխանի զույգը չլինի կամ հակարակը) և սխալ բլոկ ընդրելուց հետո դրանք փակվում են։ Ավելի լավ կհասկանք խաղալու
+            ընթացքում։
+          </p>
+        </div>
+        <div class="game-level">
+          <div class="level-one level">
+            <div class="level-img" style="background: url(assets/images/level-one.png);"></div>
+            <h2>Մակարդակ հեշտ</h2>
+            <p>Այս մակարդակում չկա ժամանակ չկան ավելորդ բլոկներ և բոլոր բլոկները գունավորված են որոնք հեշտացնում է դրանք
+              հիշելը
+            </p>
+            <button id="level-one" onclick="level1()">Խաղալ</button>
+          </div>
+          <div class="level-two level">
+            <div class="level-img" style="background: url(assets/images/level-one.png);">
+              <div class="clock">
+                <i class="fa-solid fa-hourglass"></i>
+              </div>
+            </div>
+            <h2>Մակարդակ միջին</h2>
+            <p>Այս մակարդակում ունեք <u>60 վայրկիան</u> ժամանակ չկան ավելորդ բլոկներ և բոլոր բլոկները գունավորված են որոնք հեշտացնում է դրանք
+              հիշելը
+            </p>
+              <button id="level-two" onclick="level2()">Խաղալ</button>
+          </div>
+          <div class="level-tree level">
+            <div class="level-img" style="background: url(assets/images/level-one.png);">
+              <div class="clock">
+                <i class="fa-solid fa-hourglass"></i>
+              </div>
+              <div class="bomb">
+                <i class="fa-solid fa-bomb"></i>
+              </div>
+              <i class="fa-solid fa-bomb bomb-img"></i>
+            </div>
+            <h2>Մակարդակ դժվար</h2>
+            <p>Այս մակարդակում ունեք <u>90 վայրկիան</u> կան ռումբային բլոկներ որոնք վնասում են ձեր ժամանակին
+              դրաց կարող եք միայն կագնեցնել գտնելով իր զույգին և բոլոր բլոկները անգույն են։</p>
+            <button id="level-tree" onclick="level3()">Խաղալ</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="finish-back">
+        <div class="finish-game">
+          <h2>Դուք ավարտեցիք խաղը</h2>
+          <p id="finish-back-but"><i class="fa-solid fa-circle-arrow-left"></i>Գնալ հետ</p>
+          <a href="https://gormkrtchyann.github.io/thecodefather2.0/">
+            <p><i class="fa-solid fa-house-chimney"></i>Գնալ գլխավոր էջ</p>
+          </a>
+        </div>
+      </div>  
+  
+      <div class="wrapper levell" id="level-one-game">
+        <i class="fa-solid fa-arrow-left"></i>
+        <ul class="cards">
+          <li class="card">
+            <div class="view front-view">
+              <img src="assets/images/level1/que_icon.svg" alt="icon">
+            </div>
+            <div class="view back-view">
+              <p class="let">let</p>
+              <img class="img1" src="assets/images/level1/img-1.png" alt="card-img">
+            </div>
+          </li>
+          <li class="card">
+            <div class="view front-view">
+              <img src="assets/images/level1/que_icon.svg" alt="icon">
+            </div>
+            <div class="view back-view">
+              <div class="info">
+                <i class="fa-solid fa-circle-info" id="if"></i>
+              </div>
+              <p class="if if2">Պայման<br>(եթե)</p>
+              <img class="img5" src="assets/images/level1/img-5.png" alt="card-img">
+            </div>
+          </li>
+          <li class="card">
+            <div class="view front-view">
+              <img src="assets/images/level1/que_icon.svg" alt="icon">
+            </div>
+            <div class="view back-view">
+              <p class="oper">+ - * / %</p>
+              <img class="img3" src="assets/images/level1/img-3.png" alt="card-img">
+            </div>
+          </li>
+          <li class="card">
+            <div class="view front-view">
+              <img src="assets/images/level1/que_icon.svg" alt="icon">
+            </div>
+            <div class="view back-view">
+              <p class="if">if(){}</p>
+              <img class="img5" src="assets/images/level1/img-5.png" alt="card-img">
+            </div>
+          </li>
+          <li class="card">
+            <div class="view front-view">
+              <img src="assets/images/level1/que_icon.svg" alt="icon">
+            </div>
+            <div class="view back-view">
+              <p class="func">function a(){<br>
+                consol.log()<br>
+                }</p>
+              <img class="img6" src="assets/images/level1/img-6.png" alt="card-img">
+            </div>
+          </li>
+          <li class="card">
+            <div class="view front-view">
+              <img src="assets/images/level1/que_icon.svg" alt="icon">
+            </div>
+            <div class="view back-view">
+              <p class="for">for</p>
+              <img class="img7" src="assets/images/level1/img-7.png" alt="card-img">
+            </div>
+          </li>
+          <li class="card">
+            <div class="view front-view">
+              <img src="assets/images/level1/que_icon.svg" alt="icon">
+            </div>
+            <div class="view back-view">
+              <p class="tip">number, sring, boolean</p>
+              <img class="img2" src="assets/images/level1/img-2.png" alt="card-img">
+            </div>
+          </li>
+          
+          <li class="card">
+            <div class="view front-view">
+              <img src="assets/images/level1/que_icon.svg" alt="icon">
+            </div>
+            <div class="view back-view">
+              <div class="info">
+                <i class="fa-solid fa-circle-info" id="let"></i>
+              </div>
+              <p class="let let2">Փոփոխական</p>
+              <img class="img1" src="assets/images/level1/img-1.png" alt="card-img">
+            </div>
+          </li>
+          <li class="card">
+            <div class="view front-view">
+              <img src="assets/images/level1/que_icon.svg" alt="icon">
+            </div>
+            <div class="view back-view">
+              <div class="info">
+                <i class="fa-solid fa-circle-info" id="tip"></i>
+              </div>
+              <p class="tip">Տիպեր</p>
+              <img class="img2" src="assets/images/level1/img-2.png" alt="card-img">
+            </div>
+          </li>
+          <li class="card">
+            <div class="view front-view">
+              <img src="assets/images/level1/que_icon.svg" alt="icon">
+            </div>
+            <div class="view back-view">
+              <p class="array">var a = [1, 2, 3, ...]</p>
+              <img class="img8" src="assets/images/level1/img-8.png" alt="card-img">
+            </div>
+          </li>
+          <li class="card">
+            <div class="view front-view">
+              <img src="assets/images/level1/que_icon.svg" alt="icon">
+            </div>
+            <div class="view back-view">
+              <div class="info">
+                <i class="fa-solid fa-circle-info" id="oper"></i>
+              </div>
+              <p class="oper oper2">Օպերա-<br> տորներ</p>
+              <img class="img3" src="assets/images/level1/img-3.png" alt="card-img">
+            </div>
+          </li>
+          <li class="card">
+            <div class="view front-view">
+              <img src="assets/images/level1/que_icon.svg" alt="icon">
+            </div>
+            <div class="view back-view">
+              <div class="info">
+                <i class="fa-solid fa-circle-info" id="boolean"></i>
+              </div>
+              <p class="boolean boolean2">boolean արժեք</p>
+              <img class="img4" src="assets/images/level1/img-4.png" alt="card-img">
+            </div>
+          </li>
+          <li class="card">
+            <div class="view front-view">
+              <img src="assets/images/level1/que_icon.svg" alt="icon">
+            </div>
+            <div class="view back-view">
+              <div class="info">
+                <i class="fa-solid fa-circle-info" id="func"></i>
+              </div>
+              <p class="func">Ֆունկցիա</p>
+              <img class="img6" src="assets/images/level1/img-6.png" alt="card-img">
+            </div>
+          </li>
+          <li class="card">
+            <div class="view front-view">
+              <img src="assets/images/level1/que_icon.svg" alt="icon">
+            </div>
+            <div class="view back-view">
+              <div class="info">
+                <i class="fa-solid fa-circle-info" id="for"></i>
+              </div>
+              <p class="for for2">Կրկնվող <br>Բլոկ</p>
+              <img class="img7" src="assets/images/level1/img-7.png" alt="card-img">
+            </div>
+          </li>
+          <li class="card">
+            <div class="view front-view">
+              <img src="assets/images/level1/que_icon.svg" alt="icon">
+            </div>
+            <div class="view back-view">
+              <div class="info">
+                <i class="fa-solid fa-circle-info" id="array"></i>
+              </div>
+              <p class="array">Array<br>(զանգված)</p>
+              <img class="img8" src="assets/images/level1/img-8.png" alt="card-img">
+            </div>
+          </li>
+          <li class="card">
+            <div class="view front-view">
+              <img src="assets/images/level1/que_icon.svg" alt="icon">
+            </div>
+            <div class="view back-view">
+              <p class="boolean">true, false</p>
+              <img class="img4" src="assets/images/level1/img-4.png" alt="card-img">
+            </div>
+          </li>
+        </ul>
+      </div>
+  
+      <div class="wrapper2 levell" id="level-two-game">
+        <i class="fa-solid fa-arrow-left"></i>
+        <ul class="cards">
+          <li class="card">
+            <div class="view front-view">
+              <img src="assets/images/level2/que_icon.svg" alt="icon">
+            </div>
+            <div class="view back-view">
+              <p class="for">Կրկնվող <br>Բլոկ</p>
+              <img src="assets/images/level2/img-4.png" alt="card-img">
+            </div>
+          </li>
+          <li class="card">
+            <div class="view front-view">
+              <img src="assets/images/level2/que_icon.svg" alt="icon">
+            </div>
+            <div class="view back-view">
+              <p class="op" style="font-size: 30px;">--</p>
+              <img src="assets/images/level2/img-1.png" alt="card-img">
+            </div>
+          </li>
+          <li class="card">
+            <div class="view front-view">
+              <img src="assets/images/level2/que_icon.svg" alt="icon">
+            </div>
+            <div class="view back-view">
+              <p class="com">//abcdef</p>
+              <img src="assets/images/level2/img-2.png" alt="card-img">
+            </div>
+          </li>
+          <li class="card">
+            <div class="view front-view">
+              <img src="assets/images/level2/que_icon.svg" alt="icon">
+            </div>
+            <div class="view back-view">
+              <p class="eve">onclick=""</p>
+              <img src="assets/images/level2/img-3.png" alt="card-img">
+            </div>
+          </li>
+          <li class="card">
+            <div class="view front-view">
+              <img src="assets/images/level2/que_icon.svg" alt="icon">
+            </div>
+            <div class="view back-view">
+              <p class="op">Օպերատոր</p>
+              <img src="assets/images/level2/img-1.png" alt="card-img">
+            </div>
+          </li>
+          <li class="card">
+            <div class="view front-view">
+              <img src="assets/images/level2/que_icon.svg" alt="icon">
+            </div>
+            <div class="view back-view">
+              <p class="ver" style="font-size: 30px;">=</p>
+              <img src="assets/images/level2/img-5.png" alt="card-img">
+            </div>
+          </li>
+          <li class="card">
+            <div class="view front-view">
+              <img src="assets/images/level2/que_icon.svg" alt="icon">
+            </div>
+            <div class="view back-view">
+              <p class="hava" style="font-size: 30px;">==</p>
+              <img src="assets/images/level2/img-6.png" alt="card-img">
+            </div>
+          </li>
+          <li class="card">
+            <div class="view front-view">
+              <img src="assets/images/level2/que_icon.svg" alt="icon">
+            </div>
+            <div class="view back-view">
+              <p class="ver">Վերագրում</p>
+              <img src="assets/images/level2/img-5.png" alt="card-img">
+            </div>
+          </li>
+          <li class="card">
+            <div class="view front-view">
+              <img src="assets/images/level2/que_icon.svg" alt="icon">
+            </div>
+            <div class="view back-view">
+              <p class="hava">Հավա-<br> սարում</p>
+              <img src="assets/images/level2/img-6.png" alt="card-img">
+            </div>
+          </li>
+          <li class="card">
+            <div class="view front-view">
+              <img src="assets/images/level2/que_icon.svg" alt="icon">
+            </div>
+            <div class="view back-view">
+              <p class="com">Քոմենթ</p>
+              <img src="assets/images/level2/img-2.png" alt="card-img">
+            </div>
+          </li>
+          <li class="card">
+            <div class="view front-view">
+              <img src="assets/images/level2/que_icon.svg" alt="icon">
+            </div>
+            <div class="view back-view">
+              <p class="eve">Event</p>
+              <img src="assets/images/level2/img-3.png" alt="card-img">
+            </div>
+          </li>
+          <li class="card">
+            <div class="view front-view">
+              <img src="assets/images/level2/que_icon.svg" alt="icon">
+            </div>
+            <div class="view back-view">
+              <p class="for">for(elem of element){<br>
+               //code<br>
+              }</p>
+              <img src="assets/images/level2/img-4.png" alt="card-img">
+            </div>
+          </li>
+          <div class="details">
+            <p class="time">Ժամ․: <span><b>60</b>վ</span></p>
+            <p class="flips">Քայլեր: <span><b>0</b></span></p>
+            <button>Նորից</button>
+          </div>
+        </ul>
+      </div>
+  
+      <div class="wrapper3 levell" id="level-tree-game">
+        <i class="fa-solid fa-arrow-left"></i>
+        <ul class="cards">
+          <li class="card">
+            <div class="view front-view">
+              <img src="assets/images/level3/que_icon.svg" alt="icon">
+            </div>
+            <div class="view back-view">
+              <p class="for">Կրկնվող <br>Բլոկ</p>
+              <img src="assets/images/level3/img-4.png" alt="card-img">
+            </div>
+          </li>
+          <li class="card">
+            <div class="view front-view">
+              <img src="assets/images/level3/que_icon.svg" alt="icon">
+            </div>
+            <div class="view back-view">
+              <p class="op" style="font-size: 30px;">--</p>
+              <img src="assets/images/level3/img-1.png" alt="card-img">
+            </div>
+          </li>
+          <li class="card">
+            <div class="view front-view">
+              <img src="assets/images/level3/que_icon.svg" alt="icon">
+            </div>
+            <div class="view back-view">
+              <img class="img7" src="assets/images/level3/img-7.png" alt="card-img">
+            </div>
+          </li>
+          <li class="card">
+            <div class="view front-view">
+              <img src="assets/images/level3/que_icon.svg" alt="icon">
+            </div>
+            <div class="view back-view">
+              <p class="com">//abcdef</p>
+              <img src="assets/images/level3/img-2.png" alt="card-img">
+            </div>
+          </li>
+          <li class="card">
+            <div class="view front-view">
+              <img src="assets/images/level3/que_icon.svg" alt="icon">
+            </div>
+            <div class="view back-view">
+              <p class="eve">onclick=""</p>
+              <img src="assets/images/level3/img-3.png" alt="card-img">
+            </div>
+          </li>
+          <li class="card">
+            <div class="view front-view">
+              <img src="assets/images/level3/que_icon.svg" alt="icon">
+            </div>
+            <div class="view back-view">
+              <p class="op">Օպերատոր</p>
+              <img src="assets/images/level3/img-1.png" alt="card-img">
+            </div>
+          </li>
+          <li class="card">
+            <div class="view front-view">
+              <img src="assets/images/level3/que_icon.svg" alt="icon">
+            </div>
+            <div class="view back-view">
+              <p class="ver" style="font-size: 30px;">=</p>
+              <img src="assets/images/level3/img-5.png" alt="card-img">
+            </div>
+          </li>
+          <li class="card">
+            <div class="view front-view">
+              <img src="assets/images/level3/que_icon.svg" alt="icon">
+            </div>
+            <div class="view back-view">
+              <img class="img7" src="assets/images/level3/img-7.png" alt="card-img">
+            </div>
+          </li>
+          <li class="card">
+            <div class="view front-view">
+              <img src="assets/images/level3/que_icon.svg" alt="icon">
+            </div>
+            <div class="view back-view">
+              <p class="array">var a = [1, 2, 3, ...]</p>
+              <img class="img8" src="assets/images/level3/img-8.png" alt="card-img">
+            </div>
+          </li>
+          <li class="card">
+            <div class="view front-view">
+              <img src="assets/images/level3/que_icon.svg" alt="icon">
+            </div>
+            <div class="view back-view">
+              <p class="hava" style="font-size: 30px;">==</p>
+              <img src="assets/images/level3/img-6.png" alt="card-img">
+            </div>
+          </li>
+          <li class="card">
+            <div class="view front-view">
+              <img src="assets/images/level3/que_icon.svg" alt="icon">
+            </div>
+            <div class="view back-view">
+              <p class="ver">Վերագրում</p>
+              <img src="assets/images/level3/img-5.png" alt="card-img">
+            </div>
+          </li>
+          <li class="card">
+            <div class="view front-view">
+              <img src="assets/images/level3/que_icon.svg" alt="icon">
+            </div>
+            <div class="view back-view">
+              <p class="hava">Հավա-<br> սարում</p>
+              <img src="assets/images/level3/img-6.png" alt="card-img">
+            </div>
+          </li>
+          <li class="card">
+            <div class="view front-view">
+              <img src="assets/images/level3/que_icon.svg" alt="icon">
+            </div>
+            <div class="view back-view">
+              <p class="com">Քոմենթ</p>
+              <img src="assets/images/level3/img-2.png" alt="card-img">
+            </div>
+          </li>
+          <li class="card">
+            <div class="view front-view">
+              <img src="assets/images/level3/que_icon.svg" alt="icon">
+            </div>
+            <div class="view back-view">
+              <p class="array">Array<br>(զանգված)</p>
+              <img class="img8" src="assets/images/level3/img-8.png" alt="card-img">
+            </div>
+          </li>
+          <li class="card">
+            <div class="view front-view">
+              <img src="assets/images/level3/que_icon.svg" alt="icon">
+            </div>
+            <div class="view back-view">
+              <p class="eve">Event</p>
+              <img src="assets/images/level3/img-3.png" alt="card-img">
+            </div>
+          </li>
+          <li class="card">
+            <div class="view front-view">
+              <img src="assets/images/level3/que_icon.svg" alt="icon">
+            </div>
+            <div class="view back-view">
+              <p class="for">for(elem of element){<br>
+               //code<br>
+              }</p>
+              <img src="assets/images/level3/img-4.png" alt="card-img">
+            </div>
+          </li>
+          <div class="details">
+            <p class="time">Ժամ․: <span><b>90</b>վ</span></p>
+            <p class="flips">Քայլեր: <span><b>0</b></span></p>
+            <button>Նորից</button>
+          </div>
+        </ul>
+      </div>
+    </div>
+
+    
+
+    <script src="assets/script/main.js"></script>
+    <script src="https://kit.fontawesome.com/8072840f8d.js" crossorigin="anonymous"></script>
+
+
+  </body>
+</html>

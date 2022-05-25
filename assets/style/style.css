@@ -1,0 +1,1006 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background: linear-gradient(144deg, #090979 28%, #580191 100%);
+}
+
+.body {
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.start-game {
+  width: 500px;
+  -webkit-animation: open 1s 0s forwards;
+          animation: open 1s 0s forwards;
+  text-align: center;
+}
+
+.start-game button {
+  font-size: 25px;
+  padding: 7px 45px;
+  background: #fff;
+  border: 2px solid #555;
+  -webkit-box-shadow: 0 0 15px 5px #00000025;
+          box-shadow: 0 0 15px 5px #00000025;
+  border-radius: 30px;
+  color: #090979;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.start-game button:hover {
+  letter-spacing: 3px;
+}
+
+.game-info-level {
+  width: 1000px;
+  background: #fff;
+  padding: 15px;
+  border-radius: 20px;
+  text-align: center;
+  display: none;
+  -webkit-animation: open 1s 0s forwards;
+          animation: open 1s 0s forwards;
+  position: relative;
+}
+
+@-webkit-keyframes open {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes open {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.game-info-level .fa-xmark {
+  position: absolute;
+  font-size: 30px;
+  right: 15px;
+  top: 10px;
+  cursor: pointer;
+}
+
+.game-info-level h2 {
+  font-size: 25px;
+}
+
+.game-info-level p {
+  font-size: 14px;
+}
+
+.game-info-level .info {
+  padding: 0 0 15px 0;
+}
+
+.game-info-level button {
+  margin: 10px 0;
+  padding: 5px 25px;
+  background: #fff;
+  border: 2px solid #6563FF;
+  -webkit-box-shadow: 0 0 15px 5px #00000025;
+          box-shadow: 0 0 15px 5px #00000025;
+  border-radius: 30px;
+  color: #6563FF;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.game-info-level button:hover {
+  letter-spacing: 3px;
+}
+
+.game-info-level .game-level {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.game-info-level .game-level .level {
+  width: 300px;
+}
+
+.game-info-level .game-level .level p {
+  height: 100px;
+}
+
+.game-info-level .game-level .level h2 {
+  padding: 5px 0;
+}
+
+.game-info-level .game-level .level-img {
+  width: 250px;
+  height: 250px;
+  border-radius: 10px;
+  border: 2px solid #6563FF;
+  overflow: hidden;
+  margin: 0 auto;
+  position: relative;
+}
+
+.game-info-level .game-level .level-img .clock, .game-info-level .game-level .level-img .bomb {
+  width: 100px;
+  height: 100px;
+  background: #fff;
+  color: #6563FF;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+  left: -50px;
+  bottom: -50px;
+  -webkit-box-shadow: 0 0 10px 3px #0000003f;
+          box-shadow: 0 0 10px 3px #0000003f;
+  position: absolute;
+}
+
+.game-info-level .game-level .level-img .clock i, .game-info-level .game-level .level-img .bomb i {
+  position: absolute;
+  top: 35px;
+  right: 13px;
+  font-size: 25px;
+  -webkit-animation: rot-icon 7s 0s linear infinite;
+          animation: rot-icon 7s 0s linear infinite;
+}
+
+@-webkit-keyframes rot-icon {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@keyframes rot-icon {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+.game-info-level .game-level .level-img .bomb {
+  left: 200px;
+  top: -50px;
+}
+
+.game-info-level .game-level .level-img .bomb i {
+  position: absolute;
+  top: 30px;
+  right: 70px;
+  font-size: 25px;
+  -webkit-animation: fade-icon 3s 0s linear infinite;
+          animation: fade-icon 3s 0s linear infinite;
+  -webkit-transform: rotate(20deg);
+          transform: rotate(20deg);
+}
+
+.game-info-level .game-level .level-img .bomb-img {
+  position: absolute;
+  font-size: 30px;
+  background: #fff;
+  padding: 15px;
+  top: 155px;
+  left: 53px;
+  color: #ff6363;
+}
+
+@-webkit-keyframes fade-icon {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes fade-icon {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.finish-back {
+  width: 100%;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: absolute;
+  z-index: 10;
+  -webkit-animation: open 1s 0s forwards;
+          animation: open 1s 0s forwards;
+  display: none;
+}
+
+.finish-back a {
+  color: #000;
+  text-decoration: none;
+}
+
+.finish-back .finish-game {
+  background: #fff;
+  height: 150px;
+  width: 400px;
+  padding: 20px;
+  text-align: center;
+  text-transform: capitalize;
+  border-radius: 20px;
+  right: 0;
+  left: 0;
+  margin-left: auto;
+  margin-right: auto;
+  top: 50%;
+  position: absolute;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+
+.finish-back .finish-game h2 {
+  line-height: 50px;
+}
+
+.finish-back .finish-game i {
+  margin-right: 5px;
+}
+
+.finish-back .finish-game p {
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  cursor: pointer;
+  line-height: 27px;
+}
+
+.finish-back .finish-game p:hover {
+  letter-spacing: 3px;
+}
+
+.wrapper {
+  padding: 25px;
+  border-radius: 10px;
+  background: #F8F8F8;
+  -webkit-box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  -webkit-animation: open 1s 0s forwards;
+          animation: open 1s 0s forwards;
+  display: none;
+}
+
+.wrapper .fa-arrow-left {
+  position: absolute;
+  font-size: 35px;
+  right: 15px;
+  top: 10px;
+  cursor: pointer;
+  color: #fff;
+}
+
+.wrapper .cards, .wrapper .card, .wrapper .view {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.wrapper .cards {
+  height: 400px;
+  width: 400px;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.wrapper .cards .card {
+  cursor: pointer;
+  list-style: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  position: relative;
+  -webkit-perspective: 1000px;
+          perspective: 1000px;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  height: calc(100% / 4 - 10px);
+  width: calc(100% / 4 - 10px);
+}
+
+.wrapper .cards .card.shake {
+  -webkit-animation: shake 0.35s ease-in-out;
+          animation: shake 0.35s ease-in-out;
+}
+
+@-webkit-keyframes shake {
+  0%, 100% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+  20% {
+    -webkit-transform: translateX(-13px);
+            transform: translateX(-13px);
+  }
+  40% {
+    -webkit-transform: translateX(13px);
+            transform: translateX(13px);
+  }
+  60% {
+    -webkit-transform: translateX(-8px);
+            transform: translateX(-8px);
+  }
+  80% {
+    -webkit-transform: translateX(8px);
+            transform: translateX(8px);
+  }
+}
+
+@keyframes shake {
+  0%, 100% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+  20% {
+    -webkit-transform: translateX(-13px);
+            transform: translateX(-13px);
+  }
+  40% {
+    -webkit-transform: translateX(13px);
+            transform: translateX(13px);
+  }
+  60% {
+    -webkit-transform: translateX(-8px);
+            transform: translateX(-8px);
+  }
+  80% {
+    -webkit-transform: translateX(8px);
+            transform: translateX(8px);
+  }
+}
+
+.wrapper .card .view {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  border-radius: 7px;
+  background: #fff;
+  pointer-events: none;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  -webkit-box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  -webkit-transition: -webkit-transform 0.25s linear;
+  transition: -webkit-transform 0.25s linear;
+  transition: transform 0.25s linear;
+  transition: transform 0.25s linear, -webkit-transform 0.25s linear;
+}
+
+.wrapper .card .front-view img {
+  width: 19px;
+}
+
+.wrapper .card .back-view {
+  -webkit-transform: rotateY(-180deg);
+          transform: rotateY(-180deg);
+}
+
+.wrapper .card .back-view img {
+  max-width: 80px;
+  opacity: 0.4;
+  -webkit-filter: blur(3px);
+          filter: blur(3px);
+}
+
+.wrapper .card .back-view p {
+  position: absolute;
+  font: 40px Arial;
+  line-height: 18px;
+  text-align: center;
+  text-shadow: 0 0 40px rgba(0, 0, 0, 0.466);
+}
+
+.wrapper .card .back-view p.let {
+  color: green;
+}
+
+.wrapper .card .back-view p.let2 {
+  font-size: 15px;
+}
+
+.wrapper .card .back-view p.tip {
+  font-size: 20px;
+  color: red;
+}
+
+.wrapper .card .back-view p.oper {
+  font-size: 25px;
+  color: blue;
+}
+
+.wrapper .card .back-view p.oper2 {
+  font-size: 20px;
+}
+
+.wrapper .card .back-view p.boolean {
+  font-size: 25px;
+  color: #8c00ff;
+}
+
+.wrapper .card .back-view p.boolean2 {
+  font-size: 20px;
+}
+
+.wrapper .card .back-view p.if {
+  font-size: 25px;
+  color: #ffbb00;
+}
+
+.wrapper .card .back-view p.if2 {
+  font-size: 20px;
+}
+
+.wrapper .card .back-view p.func {
+  font-size: 15px;
+  line-height: 15px;
+  color: green;
+}
+
+.wrapper .card .back-view p.for {
+  color: #ffbb00;
+}
+
+.wrapper .card .back-view p.for2 {
+  font-size: 17px;
+}
+
+.wrapper .card .back-view p.array {
+  font-size: 15px;
+  color: red;
+}
+
+.wrapper .card .info {
+  display: none;
+  width: 100px;
+  height: 100px;
+  position: relative;
+}
+
+.wrapper .card .info i {
+  font-size: 20px;
+  position: absolute;
+  top: 10px;
+  right: -75px;
+}
+
+.wrapper .card.flip .back-view {
+  -webkit-transform: rotateY(0);
+          transform: rotateY(0);
+}
+
+.wrapper .card.flip .front-view {
+  -webkit-transform: rotateY(180deg);
+          transform: rotateY(180deg);
+}
+
+.wrapper2 {
+  padding: 25px;
+  background: #f8f8f8;
+  border-radius: 10px;
+  -webkit-box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  -webkit-animation: open 1s 0s forwards;
+          animation: open 1s 0s forwards;
+  display: none;
+}
+
+.wrapper2 .fa-arrow-left {
+  position: absolute;
+  font-size: 35px;
+  right: 15px;
+  top: 10px;
+  cursor: pointer;
+  color: #fff;
+}
+
+.wrapper2 .cards, .wrapper2 .card, .wrapper2 .view, .wrapper2 .details, .wrapper2 p {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.wrapper2 .cards {
+  height: 350px;
+  width: 350px;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.wrapper2 .cards .card {
+  cursor: pointer;
+  position: relative;
+  -webkit-perspective: 1000px;
+          perspective: 1000px;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  height: calc(100% / 4 - 10px);
+  width: calc(100% / 4 - 10px);
+}
+
+.wrapper2 .cards .card.shake {
+  -webkit-animation: shake 0.35s ease-in-out;
+          animation: shake 0.35s ease-in-out;
+}
+
+@keyframes shake {
+  0%, 100% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+  20% {
+    -webkit-transform: translateX(-13px);
+            transform: translateX(-13px);
+  }
+  40% {
+    -webkit-transform: translateX(13px);
+            transform: translateX(13px);
+  }
+  60% {
+    -webkit-transform: translateX(-8px);
+            transform: translateX(-8px);
+  }
+  80% {
+    -webkit-transform: translateX(8px);
+            transform: translateX(8px);
+  }
+}
+
+.wrapper2 .cards .card .view {
+  width: 100%;
+  height: 100%;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  pointer-events: none;
+  position: absolute;
+  background: #fff;
+  border-radius: 7px;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  -webkit-transition: -webkit-transform 0.25s linear;
+  transition: -webkit-transform 0.25s linear;
+  transition: transform 0.25s linear;
+  transition: transform 0.25s linear, -webkit-transform 0.25s linear;
+  -webkit-box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+.wrapper2 .card .back-view {
+  -webkit-transform: rotateY(-180deg);
+          transform: rotateY(-180deg);
+}
+
+.wrapper2 .card .back-view img {
+  max-width: 80px;
+  opacity: 0.5;
+  -webkit-filter: blur(3px);
+          filter: blur(3px);
+}
+
+.wrapper2 .card .back-view p {
+  position: absolute;
+  font-size: 15px;
+  text-align: center;
+}
+
+.wrapper2 .card .back-view p.for {
+  font-size: 12px;
+  color: #c300ff;
+}
+
+.wrapper2 .card .back-view p.op, .wrapper2 .card .back-view p.hava {
+  color: green;
+  font-size: 13px;
+}
+
+.wrapper2 .card .back-view p.com {
+  color: red;
+}
+
+.wrapper2 .card .back-view p.eve {
+  color: blue;
+}
+
+.wrapper2 .card .back-view p.ver {
+  color: orange;
+  font-size: 13px;
+}
+
+.wrapper2 .card.flip .front-view {
+  -webkit-transform: rotateY(180deg);
+          transform: rotateY(180deg);
+}
+
+.wrapper2 .card.flip .front-view img {
+  max-width: 17px;
+}
+
+.wrapper2 .card.flip .back-view {
+  -webkit-transform: rotateY(0);
+          transform: rotateY(0);
+}
+
+.wrapper2 .details {
+  width: 100%;
+  margin-top: 15px;
+  padding: 0 20px;
+  border-radius: 7px;
+  background: #fff;
+  height: calc(100% / 4 - 30px);
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+.wrapper2 .details p {
+  font-size: 18px;
+  height: 17px;
+  padding-right: 18px;
+  border-right: 1px solid #ccc;
+}
+
+.wrapper2 .details span {
+  margin-left: 8px;
+}
+
+.wrapper2 .details b {
+  font-weight: 500;
+}
+
+.wrapper2 .details button {
+  cursor: pointer;
+  font-size: 14px;
+  color: #6563ff;
+  border-radius: 4px;
+  padding: 4px 11px;
+  background: #fff;
+  border: 2px solid #6563ff;
+  -webkit-transition: 0.3s ease;
+  transition: 0.3s ease;
+}
+
+.wrapper2 .details button:hover {
+  color: #fff;
+  background: #6563ff;
+}
+
+.wrapper3 {
+  padding: 25px;
+  background: #f8f8f8;
+  border-radius: 10px;
+  -webkit-box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  -webkit-animation: open 1s 0s forwards;
+          animation: open 1s 0s forwards;
+  height: 470px;
+  display: none;
+}
+
+.wrapper3 .fa-arrow-left {
+  position: absolute;
+  font-size: 35px;
+  right: 15px;
+  top: 10px;
+  cursor: pointer;
+  color: #fff;
+}
+
+.wrapper3 .cards, .wrapper3 .card, .wrapper3 .view, .wrapper3 .details, .wrapper3 p {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.wrapper3 .cards {
+  height: 350px;
+  width: 350px;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.wrapper3 .cards .card {
+  cursor: pointer;
+  position: relative;
+  -webkit-perspective: 1000px;
+          perspective: 1000px;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  height: calc(100% / 4 - 10px);
+  width: calc(100% / 4 - 10px);
+  margin-bottom: 10px;
+}
+
+.wrapper3 .cards .card.shake {
+  -webkit-animation: shake 0.35s ease-in-out;
+          animation: shake 0.35s ease-in-out;
+}
+
+@keyframes shake {
+  0%, 100% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+  20% {
+    -webkit-transform: translateX(-13px);
+            transform: translateX(-13px);
+  }
+  40% {
+    -webkit-transform: translateX(13px);
+            transform: translateX(13px);
+  }
+  60% {
+    -webkit-transform: translateX(-8px);
+            transform: translateX(-8px);
+  }
+  80% {
+    -webkit-transform: translateX(8px);
+            transform: translateX(8px);
+  }
+}
+
+.wrapper3 .cards .card .view {
+  width: 100%;
+  height: 100%;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  pointer-events: none;
+  position: absolute;
+  background: #fff;
+  border-radius: 7px;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  -webkit-transition: -webkit-transform 0.25s linear;
+  transition: -webkit-transform 0.25s linear;
+  transition: transform 0.25s linear;
+  transition: transform 0.25s linear, -webkit-transform 0.25s linear;
+  -webkit-box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+.wrapper3 .card .back-view {
+  -webkit-transform: rotateY(-180deg);
+          transform: rotateY(-180deg);
+}
+
+.wrapper3 .card .back-view img {
+  max-width: 80px;
+  opacity: 0.5;
+  -webkit-filter: blur(3px);
+          filter: blur(3px);
+  -webkit-filter: grayscale(100%);
+          filter: grayscale(100%);
+}
+
+.wrapper3 .card .back-view img.img7 {
+  opacity: 1;
+  -webkit-filter: blur(0);
+          filter: blur(0);
+  max-width: 60px;
+}
+
+.wrapper3 .card .back-view p {
+  position: absolute;
+  font-size: 15px;
+  text-align: center;
+  color: #000;
+}
+
+.wrapper3 .card .back-view p.for {
+  font-size: 12px;
+}
+
+.wrapper3 .card .back-view p.op, .wrapper3 .card .back-view p.hava {
+  font-size: 13px;
+}
+
+.wrapper3 .card .back-view p.ver {
+  font-size: 13px;
+}
+
+.wrapper3 .card.flip .front-view {
+  -webkit-transform: rotateY(180deg);
+          transform: rotateY(180deg);
+}
+
+.wrapper3 .card.flip .front-view img {
+  max-width: 17px;
+}
+
+.wrapper3 .card.flip .back-view {
+  -webkit-transform: rotateY(0);
+          transform: rotateY(0);
+}
+
+.wrapper3 .details {
+  width: 100%;
+  margin-top: 15px;
+  padding: 0 20px;
+  border-radius: 7px;
+  background: #fff;
+  height: calc(100% / 4 - 30px);
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+.wrapper3 .details p {
+  font-size: 18px;
+  height: 17px;
+  padding-right: 18px;
+  border-right: 1px solid #ccc;
+}
+
+.wrapper3 .details span {
+  margin-left: 8px;
+}
+
+.wrapper3 .details b {
+  font-weight: 500;
+}
+
+.wrapper3 .details button {
+  cursor: pointer;
+  font-size: 14px;
+  color: #6563ff;
+  border-radius: 4px;
+  padding: 4px 11px;
+  background: #fff;
+  border: 2px solid #6563ff;
+  -webkit-transition: 0.3s ease;
+  transition: 0.3s ease;
+}
+
+.wrapper3 .details button:hover {
+  color: #fff;
+  background: #6563ff;
+}
+
+@media screen and (max-width: 768px) {
+  .body {
+    overflow-y: scroll;
+  }
+  .game-info-level {
+    top: 600px;
+    width: 330px;
+    padding-bottom: 50px;
+  }
+  .game-info-level .game-level {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .levell .cards {
+    height: 350px;
+    width: 350px;
+  }
+  .levell .card .front-view img {
+    width: 17px;
+  }
+  .levell .card .back-view img {
+    max-width: 40px;
+  }
+}
+
+@media screen and (max-width: 530px) {
+  .levell .cards {
+    height: 300px;
+    width: 300px;
+  }
+  .levell .cards .card .back-view p {
+    font-size: 9px;
+  }
+  .levell .card .front-view img {
+    width: 15px;
+  }
+  .levell .card .back-view img {
+    max-width: 35px;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .start-game img {
+    width: 270px;
+  }
+}
+/*# sourceMappingURL=style.css.map */

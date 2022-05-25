@@ -1,0 +1,611 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap')
+*
+  margin: 0
+  padding: 0
+  box-sizing: border-box
+  font-family: 'Poppins', sans-serif
+
+body
+  background: linear-gradient(144deg, rgba(9,9,121,1) 28%, rgba(88,1,145,1) 100%)
+.body
+  width: 100%
+  height: 100vh
+  overflow: hidden
+  display: flex
+  align-items: center
+  justify-content: center
+.start-game
+  width: 500px
+  animation: open 1s 0s forwards
+  text-align: center
+  button
+    font-size: 25px
+    padding: 7px 45px
+    background: #fff
+    border: 2px solid #555
+    box-shadow: 0 0 15px 5px #00000025
+    border-radius: 30px
+    color: rgba(9,9,121,1)
+    transition: 0.3s
+    cursor: pointer
+    &:hover
+      letter-spacing: 3px
+
+.game-info-level
+  width: 1000px 
+  background: #fff
+  padding: 15px
+  border-radius: 20px
+  text-align: center
+  display: none
+  animation: open 1s 0s forwards
+  position: relative
+  @keyframes open
+    0%
+      opacity: 0
+    100%
+      opacity: 1
+  .fa-xmark
+    position: absolute
+    font-size: 30px
+    right: 15px
+    top: 10px
+    cursor: pointer
+  h2
+    font-size: 25px
+  p
+    font-size: 14px
+  .info
+    padding: 0 0 15px 0
+ 
+  button
+    margin: 10px 0
+    padding: 5px 25px
+    background: #fff
+    border: 2px solid #6563FF
+    box-shadow: 0 0 15px 5px #00000025
+    border-radius: 30px
+    color: #6563FF
+    transition: 0.3s
+    cursor: pointer
+    &:hover
+      letter-spacing: 3px
+  .game-level
+    display: flex
+    justify-content: space-around
+    .level
+      width: 300px
+      p
+        height: 100px
+      h2
+        padding: 5px 0
+    .level-img
+      width: 250px
+      height: 250px
+      border-radius: 10px
+      border: 2px solid #6563FF
+      overflow: hidden
+      margin: 0 auto
+      position: relative
+      .clock, .bomb
+        width: 100px
+        height: 100px
+        background: #fff
+        color: #6563FF
+        display: flex
+        justify-content: center
+        align-items: center
+        transform: rotate(-45deg)
+        left: -50px
+        bottom: -50px
+        box-shadow: 0 0 10px 3px #0000003f
+        position: absolute
+        i
+          position: absolute
+          top: 35px
+          right: 13px
+          font-size: 25px
+          animation: rot-icon 7s 0s linear infinite
+        
+        @keyframes rot-icon
+          0%
+            transform: rotate(0deg)
+          100%
+            transform: rotate(360deg)
+      .bomb
+        left: 200px
+        top: -50px
+        i
+          position: absolute
+          top: 30px
+          right: 70px
+          font-size: 25px
+          animation: fade-icon 3s 0s linear infinite
+          transform: rotate(20deg)
+      .bomb-img
+        position: absolute
+        font-size: 30px
+        background: #fff
+        padding: 15px
+        top: 155px
+        left: 53px
+        color: #ff6363
+
+        @keyframes fade-icon
+          0%
+            opacity: 0
+          50%
+            opacity: 1
+          100%
+            opacity: 0
+
+.finish-back
+  width: 100%
+  height: 100vh
+  background: rgba(0, 0, 0, 0.5)
+  display: flex
+  justify-content: center
+  align-items: center
+  position: absolute
+  z-index: 10
+  animation: open 1s 0s forwards
+  display: none
+  a
+    color: #000
+    text-decoration: none
+  .finish-game
+    background: #fff
+    height: 150px
+    width: 400px
+    padding: 20px 
+    text-align: center
+    text-transform: capitalize
+    border-radius: 20px
+    right: 0
+    left: 0
+    margin-left: auto
+    margin-right: auto
+    top: 50%
+    position: absolute
+    transform: translateY(-50%)
+    h2
+      line-height: 50px
+    i
+      margin-right: 5px
+    p
+      transition: 0.3s
+      cursor: pointer
+      line-height: 27px
+      &:hover
+        letter-spacing: 3px
+
+.wrapper
+  padding: 25px
+  border-radius: 10px
+  background: #F8F8F8
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1)
+  animation: open 1s 0s forwards
+  display: none
+  .fa-arrow-left
+    position: absolute
+    font-size: 35px
+    right: 15px
+    top: 10px
+    cursor: pointer
+    color: #fff
+  .cards, .card, .view
+    display: flex
+    align-items: center
+    justify-content: center
+
+  .cards
+    height: 400px
+    width: 400px
+    flex-wrap: wrap
+    justify-content: space-between
+    .card
+      cursor: pointer
+      list-style: none
+      user-select: none
+      position: relative
+      perspective: 1000px
+      transform-style: preserve-3d
+      height: calc(100% / 4 - 10px)
+      width: calc(100% / 4 - 10px)
+      &.shake
+        animation: shake 0.35s ease-in-out
+
+  @keyframes shake 
+    0%, 100%
+      transform: translateX(0) 
+    20%
+      transform: translateX(-13px)
+    40%
+      transform: translateX(13px)
+    60%
+      transform: translateX(-8px)
+    80%
+      transform: translateX(8px)
+
+  .card .view
+    width: 100%
+    height: 100%
+    position: absolute
+    border-radius: 7px
+    background: #fff
+    pointer-events: none
+    backface-visibility: hidden
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1)
+    transition: transform 0.25s linear
+
+  .card .front-view img
+    width: 19px
+
+  .card 
+    .back-view 
+      transform: rotateY(-180deg)
+      img
+        max-width: 80px
+        opacity: 0.4
+        filter: blur(3px)
+      p
+        position: absolute
+        font: 40px Arial
+        line-height: 18px
+        text-align: center
+        text-shadow: 0 0 40px rgba(0, 0, 0, 0.466)
+        &.let
+          color: green
+        &.let2
+          font-size: 15px
+        &.tip
+          font-size: 20px
+          color: red
+        &.oper
+          font-size: 25px
+          color: blue
+        &.oper2
+          font-size: 20px
+        &.boolean
+          font-size: 25px
+          color: rgb(140, 0, 255)
+        &.boolean2
+          font-size: 20px
+        &.if
+          font-size: 25px
+          color: rgb(255, 187, 0)
+        &.if2
+          font-size: 20px
+        &.func
+          font-size: 15px
+          line-height: 15px
+          color: green
+        &.for
+          color: rgb(255, 187, 0)
+        &.for2
+          font-size: 17px
+        &.array
+          font-size: 15px
+          color: red
+
+    .info
+      display: none
+      width: 100px
+      height: 100px
+      position: relative
+      i
+        font-size: 20px
+        position: absolute
+        top: 10px
+        right: -75px
+    &.flip .back-view
+      transform: rotateY(0)
+
+  .card.flip .front-view
+    transform: rotateY(180deg)
+
+
+.wrapper2
+  padding: 25px
+  background: #f8f8f8
+  border-radius: 10px
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1)
+  animation: open 1s 0s forwards
+  display: none
+  .fa-arrow-left
+    position: absolute
+    font-size: 35px
+    right: 15px
+    top: 10px
+    cursor: pointer
+    color: #fff
+  .cards, .card, .view, .details, p
+    display: flex
+    align-items: center
+    justify-content: center
+
+  .cards
+    height: 350px
+    width: 350px
+    flex-wrap: wrap
+    justify-content: space-between
+    .card
+      cursor: pointer
+      position: relative
+      perspective: 1000px
+      transform-style: preserve-3d
+      height: calc(100% / 4 - 10px)
+      width: calc(100% / 4 - 10px)
+      &.shake
+        animation: shake 0.35s ease-in-out
+
+      @keyframes shake 
+        0%, 100%
+          transform: translateX(0)
+        
+        20%
+          transform: translateX(-13px)
+        
+        40%
+          transform: translateX(13px)
+        
+        60%
+          transform: translateX(-8px)
+        
+        80%
+          transform: translateX(8px)
+    
+
+  .cards 
+    .card 
+      .view
+        width: 100%
+        height: 100%
+        user-select: none
+        pointer-events: none
+        position: absolute
+        background: #fff
+        border-radius: 7px
+        backface-visibility: hidden
+        transition: transform 0.25s linear
+        box-shadow: 0 3px 10px rgba(0,0,0,0.1)
+
+  .card .back-view
+    transform: rotateY(-180deg)
+    img
+      max-width: 80px
+      opacity: 0.5
+      filter: blur(3px)
+    p
+      position: absolute
+      font-size: 15px
+      text-align: center
+      &.for
+       font-size: 12px
+       color: #c300ff
+      &.op, &.hava
+        color: green
+        font-size: 13px
+      &.com
+        color: red
+      &.eve
+        color: blue
+      &.ver
+        color: orange
+        font-size: 13px
+
+
+  .card.flip .front-view
+    transform: rotateY(180deg)
+    img
+      max-width: 17px
+
+  .card.flip .back-view
+    transform: rotateY(0)
+
+
+  .details
+    width: 100%
+    margin-top: 15px
+    padding: 0 20px
+    border-radius: 7px
+    background: #fff
+    height: calc(100% / 4 - 30px)
+    justify-content: space-between
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1)
+    p
+      font-size: 18px
+      height: 17px
+      padding-right: 18px
+      border-right: 1px solid #ccc
+    span
+      margin-left: 8px
+    b
+      font-weight: 500
+    button
+      cursor: pointer
+      font-size: 14px
+      color: #6563ff
+      border-radius: 4px
+      padding: 4px 11px
+      background: #fff
+      border: 2px solid #6563ff
+      transition: 0.3s ease
+      &:hover
+        color: #fff
+        background: #6563ff
+
+
+.wrapper3
+  padding: 25px
+  background: #f8f8f8
+  border-radius: 10px
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1)
+  animation: open 1s 0s forwards
+  height: 470px
+  display: none
+  .fa-arrow-left
+    position: absolute
+    font-size: 35px
+    right: 15px
+    top: 10px
+    cursor: pointer
+    color: #fff
+  .cards, .card, .view, .details, p
+    display: flex
+    align-items: center
+    justify-content: center
+
+  .cards
+    height: 350px
+    width: 350px
+    flex-wrap: wrap
+    justify-content: space-between
+    .card
+      cursor: pointer
+      position: relative
+      perspective: 1000px
+      transform-style: preserve-3d
+      height: calc(100% / 4 - 10px)
+      width: calc(100% / 4 - 10px)
+      margin-bottom: 10px
+      &.shake
+        animation: shake 0.35s ease-in-out
+
+      @keyframes shake 
+        0%, 100%
+          transform: translateX(0)
+        
+        20%
+          transform: translateX(-13px)
+        
+        40%
+          transform: translateX(13px)
+        
+        60%
+          transform: translateX(-8px)
+        
+        80%
+          transform: translateX(8px)
+    
+
+  .cards 
+    .card 
+      .view
+        width: 100%
+        height: 100%
+        user-select: none
+        pointer-events: none
+        position: absolute
+        background: #fff
+        border-radius: 7px
+        backface-visibility: hidden
+        transition: transform 0.25s linear
+        box-shadow: 0 3px 10px rgba(0,0,0,0.1)
+
+  .card .back-view
+    transform: rotateY(-180deg)
+    img
+      max-width: 80px
+      opacity: 0.5
+      filter: blur(3px)
+      filter: grayscale(100%)
+      &.img7
+        opacity: 1
+        filter: blur(0)
+        max-width: 60px
+
+    p
+      position: absolute
+      font-size: 15px
+      text-align: center
+      color: #000
+      &.for
+       font-size: 12px
+      &.op, &.hava
+        font-size: 13px
+      &.ver
+        font-size: 13px
+
+
+  .card.flip .front-view
+    transform: rotateY(180deg)
+    img
+      max-width: 17px
+
+  .card.flip .back-view
+    transform: rotateY(0)
+
+
+  .details
+    width: 100%
+    margin-top: 15px
+    padding: 0 20px
+    border-radius: 7px
+    background: #fff
+    height: calc(100% / 4 - 30px)
+    justify-content: space-between
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1)
+    p
+      font-size: 18px
+      height: 17px
+      padding-right: 18px
+      border-right: 1px solid #ccc
+    span
+      margin-left: 8px
+    b
+      font-weight: 500
+    button
+      cursor: pointer
+      font-size: 14px
+      color: #6563ff
+      border-radius: 4px
+      padding: 4px 11px
+      background: #fff
+      border: 2px solid #6563ff
+      transition: 0.3s ease
+      &:hover
+        color: #fff
+        background: #6563ff
+
+@media screen and (max-width: 768px)
+  .body
+    overflow-y: scroll
+  .game-info-level
+    top: 600px
+    width: 330px
+    padding-bottom: 50px
+    .game-level
+      flex-direction: column
+  .levell 
+    .cards
+      height: 350px
+      width: 350px
+    
+    .card .front-view img
+      width: 17px
+    
+    .card .back-view img
+      max-width: 40px
+  
+@media screen and (max-width: 530px) 
+  .levell
+    .cards
+      height: 300px
+      width: 300px
+      .card
+        .back-view
+          p
+            font-size: 9px 
+
+    .card .front-view img
+      width: 15px
+
+    .card .back-view img
+      max-width: 35px
+@media screen and (max-width: 375px)
+  .start-game
+    img
+      width: 270px
+  
+
